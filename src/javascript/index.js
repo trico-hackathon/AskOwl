@@ -84,13 +84,13 @@ const App = () => {
                         mybot.action.set(
                           {
                             options: [
-                              { label: "Monday", value: "mon" },
-                              { label: "Tuesday", value: "tue" },
-                              { label: "Wednesday", value: "wed" },
-                              { label: "Thursday", value: "thur" },
-                              { label: "Friday", value: "fri" },
-                              { label: "Saturday", value: "sat" },
-                              { label: "Sunday", value: "sun" },
+                              { label: "Mon", value: "mon" },
+                              { label: "Tue", value: "tue" },
+                              { label: "Wed", value: "wed" },
+                              { label: "Thur", value: "thur" },
+                              { label: "Fri", value: "fri" },
+                              { label: "Sat", value: "sat" },
+                              { label: "Sun", value: "sun" },
                             ],
                           },
                           { actionType: "selectButtons" },
@@ -117,7 +117,7 @@ const App = () => {
 
   return (
     <div>
-      <BotUI bot={mybot}>
+      <BotUI bot={mybot} >
         <BotUIMessageList />
         <BotUIAction />
       </BotUI>

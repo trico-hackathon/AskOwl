@@ -2997,31 +2997,31 @@ const App = ()=>{
                         })).then(()=>mybot.action.set({
                             options: [
                                 {
-                                    label: "Monday",
+                                    label: "Mon",
                                     value: "mon"
                                 },
                                 {
-                                    label: "Tuesday",
+                                    label: "Tue",
                                     value: "tue"
                                 },
                                 {
-                                    label: "Wednesday",
+                                    label: "Wed",
                                     value: "wed"
                                 },
                                 {
-                                    label: "Thursday",
+                                    label: "Thur",
                                     value: "thur"
                                 },
                                 {
-                                    label: "Friday",
+                                    label: "Fri",
                                     value: "fri"
                                 },
                                 {
-                                    label: "Saturday",
+                                    label: "Sat",
                                     value: "sat"
                                 },
                                 {
-                                    label: "Sunday",
+                                    label: "Sun",
                                     value: "sun"
                                 }, 
                             ]
