@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"1xC6H":[function(require,module,exports) {
+})({"cp6b7":[function(require,module,exports) {
 var Refresh = require("react-refresh/runtime");
 var ErrorOverlay = require("react-error-overlay");
 Refresh.injectIntoGlobalHook(window);
@@ -163,11 +163,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"react-refresh/runtime":"786KC","react-error-overlay":"1dldy"}],"786KC":[function(require,module,exports) {
+},{"react-refresh/runtime":"hqugw","react-error-overlay":"aj40N"}],"hqugw":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-refresh-runtime.development.js");
 
-},{"./cjs/react-refresh-runtime.development.js":"hdge7"}],"hdge7":[function(require,module,exports) {
+},{"./cjs/react-refresh-runtime.development.js":"kfHbM"}],"kfHbM":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -627,7 +627,7 @@ module.exports = require("./cjs/react-refresh-runtime.development.js");
     exports.setSignature = setSignature;
 })();
 
-},{}],"1dldy":[function(require,module,exports) {
+},{}],"aj40N":[function(require,module,exports) {
 var process = require("process");
 !function(e, t) {
     module.exports = t();
@@ -2358,7 +2358,7 @@ var process = require("process");
     ]);
 });
 
-},{"process":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"process":"2AXF0"}],"2AXF0":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2503,7 +2503,7 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"kk65R":[function(require,module,exports) {
+},{}],"beuiH":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
@@ -2959,7 +2959,9 @@ const App = ()=>{
                 })).then((data)=>mybot.wait({
                     waitTime: 500
                 }, data)).then((data)=>{
-                if (data?.selected?.value == "bmc") mybot.message.add({
+                if (data?.selected?.value == "bmc") console.log("bmc");
+                else console.log("hc");
+                mybot.message.add({
                     text: "Now or later?"
                 }).then(()=>mybot.wait({
                         waitTime: 500
@@ -2979,10 +2981,16 @@ const App = ()=>{
                     })).then((data)=>mybot.wait({
                         waitTime: 500
                     }, data)).then((data)=>{
-                    if (data?.selected?.value == "now") mybot.message.add({
-                        text: "..."
-                    });
-                    else mybot.message.add({
+                    if (data?.selected?.value == "now") {
+                        mybot.message.add({
+                            text: "..."
+                        });
+                        var date = new Date();
+                        var n = date.toDateString();
+                        var time = date.toLocaleTimeString();
+                        console.log("date:", n);
+                        console.log("time:", time);
+                    } else mybot.message.add({
                         text: "Day of the week?"
                     }).then(()=>mybot.wait({
                             waitTime: 500
@@ -3019,32 +3027,20 @@ const App = ()=>{
                             ]
                         }, {
                             actionType: "selectButtons"
-                        })).then(()=>mybot.wait({
+                        })).then((data)=>mybot.wait({
                             waitTime: 500
-                        })).then(()=>mybot.action.add({
-                            type: "date"
-                        }, {
-                            actionType: "input"
-                        }));
+                        }, data)).then((data)=>{
+                        mybot.message.add({
+                            text: "Please enter the time:"
+                        }).then(()=>mybot.wait({
+                                waitTime: 500
+                            })).then(()=>mybot.action.set({
+                                placeholder: "HH:MM"
+                            }, {
+                                actionType: "input"
+                            }));
+                    });
                 });
-                else mybot.message.add({
-                    text: "Now or later?"
-                }).then(()=>mybot.wait({
-                        waitTime: 500
-                    })).then(()=>mybot.action.set({
-                        options: [
-                            {
-                                label: "Now",
-                                value: "now"
-                            },
-                            {
-                                label: "Later",
-                                value: "later"
-                            }, 
-                        ]
-                    }, {
-                        actionType: "selectButtons"
-                    }));
             });
         });
     }, []);
@@ -3054,23 +3050,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 124,
+                    lineNumber: 121,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 125,
+                    lineNumber: 122,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 123,
+            lineNumber: 120,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 122,
+        lineNumber: 119,
         columnNumber: 5
     }, undefined);
 };
@@ -3081,7 +3077,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 134,
+        lineNumber: 131,
         columnNumber: 15
     }, undefined));
 }
@@ -3093,11 +3089,11 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","botui":"8ghGd","react":"21dqq","react-dom/client":"lOjBx","@botui/react":"iF8r3","@botui/react/dist/styles/default.theme.scss":"cgAjp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"at5rh","botui":"gSsze","react":"ZwxmC","react-dom/client":"kO7oc","@botui/react":"jF3xu","@botui/react/dist/styles/default.theme.scss":"k61Ri","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1nJSY"}],"at5rh":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
-},{"./cjs/react-jsx-dev-runtime.development.js":"48uCM"}],"48uCM":[function(require,module,exports) {
+},{"./cjs/react-jsx-dev-runtime.development.js":"2CYIJ"}],"2CYIJ":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-dev-runtime.development.js
@@ -3926,11 +3922,11 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
     exports.jsxDEV = jsxDEV$1;
 })();
 
-},{"react":"21dqq"}],"21dqq":[function(require,module,exports) {
+},{"react":"ZwxmC"}],"ZwxmC":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react.development.js");
 
-},{"./cjs/react.development.js":"6YvXz"}],"6YvXz":[function(require,module,exports) {
+},{"./cjs/react.development.js":"93wlM"}],"93wlM":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -5794,7 +5790,7 @@ module.exports = require("./cjs/react.development.js");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"8ghGd":[function(require,module,exports) {
+},{}],"gSsze":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BlockTypes", ()=>BlockTypes);
@@ -5945,7 +5941,7 @@ const createBot = ()=>{
     return botuiInterface;
 };
 
-},{"./block.js":"gShMy","./resolve.js":"hgcor","./plugin.js":"bBNA8","./action.js":"82rPB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gShMy":[function(require,module,exports) {
+},{"./block.js":"hOOOf","./resolve.js":"5SJHp","./plugin.js":"altiq","./action.js":"bKR4e","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"hOOOf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBlock", ()=>createBlock);
@@ -5999,7 +5995,7 @@ function blockManager(callback = (history = [])=>{}) {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"fswdS":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -6029,7 +6025,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"hgcor":[function(require,module,exports) {
+},{}],"5SJHp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "resolveManager", ()=>resolveManager);
@@ -6043,7 +6039,7 @@ function resolveManager() {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bBNA8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"altiq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "pluginManager", ()=>pluginManager);
@@ -6066,7 +6062,7 @@ function pluginManager() {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"82rPB":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"bKR4e":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "actionManager", ()=>actionManager);
@@ -6085,7 +6081,7 @@ function actionManager(callback = (action)=>{}) {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lOjBx":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"kO7oc":[function(require,module,exports) {
 "use strict";
 var m = require("react-dom");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
@@ -6106,7 +6102,7 @@ exports.hydrateRoot = function(c, h, o) {
     }
 };
 
-},{"react-dom":"j6uA9"}],"j6uA9":[function(require,module,exports) {
+},{"react-dom":"fEZp0"}],"fEZp0":[function(require,module,exports) {
 "use strict";
 function checkDCE() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -6122,7 +6118,7 @@ function checkDCE() {
 }
 module.exports = require("./cjs/react-dom.development.js");
 
-},{"./cjs/react-dom.development.js":"3iA9v"}],"3iA9v":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"lHXFR"}],"lHXFR":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -27079,11 +27075,11 @@ module.exports = require("./cjs/react-dom.development.js");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"react":"21dqq","scheduler":"juvHo"}],"juvHo":[function(require,module,exports) {
+},{"react":"ZwxmC","scheduler":"80Zcp"}],"80Zcp":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/scheduler.development.js");
 
-},{"./cjs/scheduler.development.js":"RqdIf"}],"RqdIf":[function(require,module,exports) {
+},{"./cjs/scheduler.development.js":"l5IlT"}],"l5IlT":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -27537,7 +27533,7 @@ module.exports = require("./cjs/scheduler.development.js");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"iF8r3":[function(require,module,exports) {
+},{}],"jF3xu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _hooks = require("./hooks");
@@ -27545,7 +27541,7 @@ parcelHelpers.exportAll(_hooks, exports);
 var _components = require("./components");
 parcelHelpers.exportAll(_components, exports);
 
-},{"./hooks":"kEid7","./components":"gQ9SC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kEid7":[function(require,module,exports) {
+},{"./hooks":"9IHat","./components":"jDoPD","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"9IHat":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useBotUI = require("./useBotUI");
@@ -27555,7 +27551,7 @@ parcelHelpers.exportAll(_useBotUIAction, exports);
 var _useBotUIMessage = require("./useBotUIMessage");
 parcelHelpers.exportAll(_useBotUIMessage, exports);
 
-},{"./useBotUI":"7Lj19","./useBotUIAction":"2HTgO","./useBotUIMessage":"6pvqn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Lj19":[function(require,module,exports) {
+},{"./useBotUI":"cRTS8","./useBotUIAction":"kWeVH","./useBotUIMessage":"clbYU","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"cRTS8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BotUIContext", ()=>BotUIContext);
@@ -27568,7 +27564,7 @@ const useBotUI = ()=>{
     return context.bot;
 };
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2HTgO":[function(require,module,exports) {
+},{"react":"ZwxmC","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"kWeVH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ActionContext", ()=>ActionContext);
@@ -27579,7 +27575,7 @@ const useBotUIAction = ()=>{
     return (0, _react.useContext)(ActionContext);
 };
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6pvqn":[function(require,module,exports) {
+},{"react":"ZwxmC","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"clbYU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MessageContext", ()=>MessageContext);
@@ -27590,7 +27586,7 @@ const useBotUIMessage = ()=>{
     return (0, _react.useContext)(MessageContext);
 };
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gQ9SC":[function(require,module,exports) {
+},{"react":"ZwxmC","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"jDoPD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _botUI = require("./BotUI");
@@ -27602,7 +27598,7 @@ parcelHelpers.exportAll(_botUIMessage, exports);
 var _botUIActionSelect = require("./BotUIActionSelect");
 parcelHelpers.exportAll(_botUIActionSelect, exports);
 
-},{"./BotUI":"3DxS7","./BotUIAction":"aKjnW","./BotUIMessage":"1AnWe","./BotUIActionSelect":"1bm9X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3DxS7":[function(require,module,exports) {
+},{"./BotUI":"bVAjj","./BotUIAction":"1Hnas","./BotUIMessage":"9POaJ","./BotUIActionSelect":"gsd8P","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"bVAjj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BotUI", ()=>BotUI);
@@ -27643,7 +27639,7 @@ const BotUI = ({ bot , children  })=>{
     }, children)))));
 };
 
-},{"react":"21dqq","botui":"8ghGd","../types":"htM3E","../hooks":"kEid7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"htM3E":[function(require,module,exports) {
+},{"react":"ZwxmC","botui":"gSsze","../types":"jXFvY","../hooks":"9IHat","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"jXFvY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CSSClasses", ()=>CSSClasses);
@@ -27661,7 +27657,7 @@ var CSSClasses;
     CSSClasses["botui_message_container"] = "botui_message_container";
 })(CSSClasses || (CSSClasses = {}));
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aKjnW":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"1Hnas":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BotUIWait", ()=>BotUIWait);
@@ -27736,7 +27732,7 @@ function BotUIAction({ renderer  }) {
     }, action?.type == (0, _botui.BOTUI_BLOCK_TYPES).ACTION ? action?.meta?.waiting ? (0, _reactDefault.default).createElement(WaitRenderer, null) : ActionRenderer !== undefined ? (0, _reactDefault.default).createElement(ActionRenderer, null) : `Action renderer not found: ${action?.meta?.actionType}. ${JSON.stringify(action.meta)}` : null);
 }
 
-},{"react":"21dqq","botui":"8ghGd","../types":"htM3E","./Utils":"iGLPw","../hooks":"kEid7","./BotUIActionSelect":"1bm9X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iGLPw":[function(require,module,exports) {
+},{"react":"ZwxmC","botui":"gSsze","../types":"jXFvY","./Utils":"5ZlIR","../hooks":"9IHat","./BotUIActionSelect":"gsd8P","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"5ZlIR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SlideFade", ()=>SlideFade);
@@ -27766,7 +27762,7 @@ function BringIntoView({ children  }) {
     }, children);
 }
 
-},{"react":"21dqq","react-transition-group":"fZSkB","scroll-into-view-if-needed":"3tw0v","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fZSkB":[function(require,module,exports) {
+},{"react":"ZwxmC","react-transition-group":"huVjY","scroll-into-view-if-needed":"g8hFD","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"huVjY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CSSTransition", ()=>(0, _csstransitionDefault.default));
@@ -27788,7 +27784,7 @@ var _transitionDefault = parcelHelpers.interopDefault(_transition);
 var _config = require("./config");
 var _configDefault = parcelHelpers.interopDefault(_config);
 
-},{"./CSSTransition":"a3gKf","./ReplaceTransition":false,"./SwitchTransition":false,"./TransitionGroup":"5mvFs","./Transition":"cKsrS","./config":"cepoZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a3gKf":[function(require,module,exports) {
+},{"./CSSTransition":"azCfy","./ReplaceTransition":false,"./SwitchTransition":false,"./TransitionGroup":"9AgRw","./Transition":"bFcjZ","./config":"3sBTy","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"azCfy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -28121,7 +28117,7 @@ CSSTransition.propTypes = (0, _extendsDefault.default)({}, (0, _transitionDefaul
 });
 exports.default = CSSTransition;
 
-},{"@babel/runtime/helpers/esm/extends":"fTBFS","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","@babel/runtime/helpers/esm/inheritsLoose":"9u2Z8","prop-types":"7wKI2","dom-helpers/addClass":"7dIIz","dom-helpers/removeClass":"66hgg","react":"21dqq","./Transition":"cKsrS","./utils/PropTypes":"9Zqaa","./utils/reflow":"V4VjQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fTBFS":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"jdrJK","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9M9OW","@babel/runtime/helpers/esm/inheritsLoose":"9K5ux","prop-types":"g92ov","dom-helpers/addClass":"8kdlQ","dom-helpers/removeClass":"5Xxad","react":"ZwxmC","./Transition":"bFcjZ","./utils/PropTypes":"6GEUP","./utils/reflow":"bHVTc","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"jdrJK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _extends() {
@@ -28136,7 +28132,7 @@ function _extends() {
 }
 exports.default = _extends;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adHgr":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"9M9OW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -28153,7 +28149,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 }
 exports.default = _objectWithoutPropertiesLoose;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9u2Z8":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"9K5ux":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _setPrototypeOfJs = require("./setPrototypeOf.js");
@@ -28165,7 +28161,7 @@ function _inheritsLoose(subClass, superClass) {
 }
 exports.default = _inheritsLoose;
 
-},{"./setPrototypeOf.js":"3XDFA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XDFA":[function(require,module,exports) {
+},{"./setPrototypeOf.js":"gVFmL","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"gVFmL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _setPrototypeOf(o, p) {
@@ -28177,18 +28173,18 @@ function _setPrototypeOf(o, p) {
 }
 exports.default = _setPrototypeOf;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7wKI2":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"g92ov":[function(require,module,exports) {
 var ReactIs = require("react-is");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
 module.exports = require("./factoryWithTypeCheckers")(ReactIs.isElement, throwOnDirectAccess);
 
-},{"react-is":"7EuwB","./factoryWithTypeCheckers":"bBUgD"}],"7EuwB":[function(require,module,exports) {
+},{"react-is":"cjbc4","./factoryWithTypeCheckers":"kfjzp"}],"cjbc4":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-is.development.js");
 
-},{"./cjs/react-is.development.js":"5DsXl"}],"5DsXl":[function(require,module,exports) {
+},{"./cjs/react-is.development.js":"7iJbq"}],"7iJbq":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -28344,7 +28340,7 @@ module.exports = require("./cjs/react-is.development.js");
     exports.typeOf = typeOf;
 })();
 
-},{}],"bBUgD":[function(require,module,exports) {
+},{}],"kfjzp":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28782,7 +28778,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"react-is":"7EuwB","object-assign":"7OXxh","./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf","./checkPropTypes":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
+},{"react-is":"cjbc4","object-assign":"frdys","./lib/ReactPropTypesSecret":"jdIc4","./lib/has":"kUhbo","./checkPropTypes":"13EBM"}],"frdys":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -28837,7 +28833,7 @@ module.exports = shouldUseNative() ? Object.assign : function(target, source) {
     return to;
 };
 
-},{}],"jZTZJ":[function(require,module,exports) {
+},{}],"jdIc4":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28847,10 +28843,10 @@ module.exports = shouldUseNative() ? Object.assign : function(target, source) {
 var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
 module.exports = ReactPropTypesSecret;
 
-},{}],"fqKuf":[function(require,module,exports) {
+},{}],"kUhbo":[function(require,module,exports) {
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
-},{}],"5VwyJ":[function(require,module,exports) {
+},{}],"13EBM":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28918,7 +28914,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"7dIIz":[function(require,module,exports) {
+},{"./lib/ReactPropTypesSecret":"jdIc4","./lib/has":"kUhbo"}],"8kdlQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _hasClass = require("./hasClass");
@@ -28932,7 +28928,7 @@ function addClass(element, className) {
 }
 exports.default = addClass;
 
-},{"./hasClass":"6sJz4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6sJz4":[function(require,module,exports) {
+},{"./hasClass":"644yu","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"644yu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function hasClass(element, className) {
@@ -28941,7 +28937,7 @@ function hasClass(element, className) {
 }
 exports.default = hasClass;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"66hgg":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"5Xxad":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function replaceClassName(origClass, classToRemove) {
@@ -28954,7 +28950,7 @@ function removeClass(element, className) {
 }
 exports.default = removeClass;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cKsrS":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"bFcjZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "UNMOUNTED", ()=>UNMOUNTED);
@@ -29470,14 +29466,14 @@ Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
 exports.default = Transition;
 
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","@babel/runtime/helpers/esm/inheritsLoose":"9u2Z8","prop-types":"7wKI2","react":"21dqq","react-dom":"j6uA9","./config":"cepoZ","./utils/PropTypes":"9Zqaa","./TransitionGroupContext":"47LXo","./utils/reflow":"V4VjQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cepoZ":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9M9OW","@babel/runtime/helpers/esm/inheritsLoose":"9K5ux","prop-types":"g92ov","react":"ZwxmC","react-dom":"fEZp0","./config":"3sBTy","./utils/PropTypes":"6GEUP","./TransitionGroupContext":"iNajP","./utils/reflow":"bHVTc","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"3sBTy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
     disabled: false
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Zqaa":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"6GEUP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "timeoutsShape", ()=>timeoutsShape);
@@ -29509,14 +29505,14 @@ var classNamesShape = (0, _propTypesDefault.default).oneOfType([
     })
 ]);
 
-},{"prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"47LXo":[function(require,module,exports) {
+},{"prop-types":"g92ov","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"iNajP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 exports.default = (0, _reactDefault.default).createContext(null);
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"V4VjQ":[function(require,module,exports) {
+},{"react":"ZwxmC","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"bHVTc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "forceReflow", ()=>forceReflow);
@@ -29524,7 +29520,7 @@ var forceReflow = function forceReflow(node) {
     return node.scrollTop;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5mvFs":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"9AgRw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
@@ -29682,7 +29678,7 @@ TransitionGroup.propTypes = {
 TransitionGroup.defaultProps = defaultProps;
 exports.default = TransitionGroup;
 
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","@babel/runtime/helpers/esm/extends":"fTBFS","@babel/runtime/helpers/esm/assertThisInitialized":"iy3su","@babel/runtime/helpers/esm/inheritsLoose":"9u2Z8","prop-types":"7wKI2","react":"21dqq","./TransitionGroupContext":"47LXo","./utils/ChildMapping":"8k6ul","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iy3su":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"9M9OW","@babel/runtime/helpers/esm/extends":"jdrJK","@babel/runtime/helpers/esm/assertThisInitialized":"kQ2z2","@babel/runtime/helpers/esm/inheritsLoose":"9K5ux","prop-types":"g92ov","react":"ZwxmC","./TransitionGroupContext":"iNajP","./utils/ChildMapping":"bgmEO","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"kQ2z2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _assertThisInitialized(self) {
@@ -29691,7 +29687,7 @@ function _assertThisInitialized(self) {
 }
 exports.default = _assertThisInitialized;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8k6ul":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"bgmEO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -29811,7 +29807,7 @@ function getNextChildMapping(nextProps, prevChildMapping, onExited) {
     return children;
 }
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3tw0v":[function(require,module,exports) {
+},{"react":"ZwxmC","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"g8hFD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _computeScrollIntoView = require("compute-scroll-into-view");
@@ -29855,7 +29851,7 @@ function scrollIntoView(target, options) {
 }
 exports.default = scrollIntoView;
 
-},{"compute-scroll-into-view":"5em9X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5em9X":[function(require,module,exports) {
+},{"compute-scroll-into-view":"3T0KS","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"3T0KS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function t(t) {
@@ -29915,7 +29911,7 @@ exports.default = function(e, i) {
     return C;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1bm9X":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"gsd8P":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BotuiActionSelect", ()=>BotuiActionSelect);
@@ -29967,7 +29963,7 @@ const BotuiActionSelectButtons = ()=>{
         }, option.label)))));
 };
 
-},{"react":"21dqq","./Utils":"iGLPw","../types":"htM3E","../hooks":"kEid7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1AnWe":[function(require,module,exports) {
+},{"react":"ZwxmC","./Utils":"5ZlIR","../types":"jXFvY","../hooks":"9IHat","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"9POaJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MessageType", ()=>MessageType);
@@ -30040,7 +30036,7 @@ const BotUIMessageList = ({ renderer  })=>{
         }))));
 };
 
-},{"react":"21dqq","react-transition-group":"fZSkB","../hooks":"kEid7","../types":"htM3E","./Utils":"iGLPw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cgAjp":[function() {},{}],"km3Ru":[function(require,module,exports) {
+},{"react":"ZwxmC","react-transition-group":"huVjY","../hooks":"9IHat","../types":"jXFvY","./Utils":"5ZlIR","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"k61Ri":[function() {},{}],"1nJSY":[function(require,module,exports) {
 "use strict";
 var Refresh = require("react-refresh/runtime");
 function debounce(func, delay) {
@@ -30160,6 +30156,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}]},["1xC6H","kk65R","dP9tu"], "dP9tu", "parcelRequire6d7c")
+},{"react-refresh/runtime":"hqugw"}]},["cp6b7","beuiH","dP9tu"], "dP9tu", "parcelRequire6d7c")
 
 //# sourceMappingURL=index.0fce79ae.js.map

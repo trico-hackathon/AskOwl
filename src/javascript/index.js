@@ -27,96 +27,93 @@ const App = () => {
       )
       .then((data) => mybot.wait({ waitTime: 500 }, data))
       .then((data) => {
-          if ( data?.selected?.value == "menu" ) {
-              mybot.message.add({ text: "This functionality is currently unavailable:( We apologize for the inconvenience." })
-          }
-          else {
-        mybot.message.add({ text: "Where to?" })
-          .then(() => mybot.wait({ waitTime: 500 }))
-          .then(() =>
-            mybot.action.set(
-              {
-                options: [
-                  { label: "Bryn Mawr", value: "bmc" },
-                  { label: "Haverford", value: "hc" },
-                ],
-              },
-              { actionType: "selectButtons" },
-            ),
-          )
-          .then((data) => mybot.wait({ waitTime: 500 }, data))
-          .then((data) => {
-            if (data?.selected?.value == "bmc") {
-                mybot.message.add({ text: "Now or later?" })
-              .then(() => mybot.wait({ waitTime: 500 }))
-              .then(() =>
-                mybot.action.set(
-                  {
-                    options: [
-                      { label: "Now", value: "now" },
-                      { label: "Later", value: "later" },
-                    ],
-                  },
-                  { actionType: "selectButtons" },
-                ),
-              )
+        if (data?.selected?.value == "menu") {
+          mybot.message.add({
+            text: "This functionality is currently unavailable:( We apologize for the inconvenience.",
+          });
+        } else {
+          mybot.message
+            .add({ text: "Where to?" })
+            .then(() => mybot.wait({ waitTime: 500 }))
+            .then(() =>
+              mybot.action.set(
+                {
+                  options: [
+                    { label: "Bryn Mawr", value: "bmc" },
+                    { label: "Haverford", value: "hc" },
+                  ],
+                },
+                { actionType: "selectButtons" },
+              ),
+            )
             .then((data) => mybot.wait({ waitTime: 500 }, data))
-          .then((data) => {
-            if (data?.selected?.value == "now") {
-                mybot.message.add({ text: "..." })
-            } else {
-            mybot.message.add({ text: "Day of the week?" })
-              .then(() => mybot.wait({ waitTime: 500 }))
-              .then(() =>
-                mybot.action.set(
-                  {
-                    options: [
-                      { label: "Monday", value: "mon" },
-                      { label: "Tuesday", value: "tue" },
-                      { label: "Wednesday", value: "wed" },
-                      { label: "Thursday", value: "thur" },
-                      { label: "Friday", value: "fri" },
-                      { label: "Saturday", value: "sat" },
-                      { label: "Sunday", value: "sun" },
-                    ],
-                  },
-                  { actionType: "selectButtons" },
-                ),
-              )
-
-              .then(() => mybot.wait({ waitTime: 500 }))
-              .then(() =>
-                mybot.action.add({ type: 'date' }, { actionType: 'input' })
-              )
-            }
-
-          })
-
-
-
-            } else {
-
-            mybot.message.add({ text: "Now or later?" })
-              .then(() => mybot.wait({ waitTime: 500 }))
-              .then(() =>
-                mybot.action.set(
-                  {
-                    options: [
-                      { label: "Now", value: "now" },
-                      { label: "Later", value: "later" },
-                    ],
-                  },
-                  { actionType: "selectButtons" },
-                ),
-              )
-                
-
-            }
-
-          })
-          }
-      })
-  }, [])
+            .then((data) => {
+              if (data?.selected?.value == "bmc") {
+                console.log("bmc");
+              } else {
+                console.log("hc");
+              }
+              mybot.message
+                .add({ text: "Now or later?" })
+                .then(() => mybot.wait({ waitTime: 500 }))
+                .then(() =>
+                  mybot.action.set(
+                    {
+                      options: [
+                        { label: "Now", value: "now" },
+                        { label: "Later", value: "later" },
+                      ],
+                    },
+                    { actionType: "selectButtons" },
+                  ),
+                )
+                .then((data) => mybot.wait({ waitTime: 500 }, data))
+                .then((data) => {
+                  if (data?.selected?.value == "now") {
+                    mybot.message.add({ text: "..." });
+                    var date = new Date();
+                    var n = date.toDateString();
+                    var time = date.toLocaleTimeString();
+                    console.log("date:", n);
+                    console.log("time:", time);
+                  } else {
+                    mybot.message
+                      .add({ text: "Day of the week?" })
+                      .then(() => mybot.wait({ waitTime: 500 }))
+                      .then(() =>
+                        mybot.action.set(
+                          {
+                            options: [
+                              { label: "Monday", value: "mon" },
+                              { label: "Tuesday", value: "tue" },
+                              { label: "Wednesday", value: "wed" },
+                              { label: "Thursday", value: "thur" },
+                              { label: "Friday", value: "fri" },
+                              { label: "Saturday", value: "sat" },
+                              { label: "Sunday", value: "sun" },
+                            ],
+                          },
+                          { actionType: "selectButtons" },
+                        ),
+                      )
+                      .then((data) => mybot.wait({ waitTime: 500 }, data))
+                      .then((data) => {
+                        mybot.message
+                          .add({ text: "Please enter the time:" })
+                          .then(() => mybot.wait({ waitTime: 500 }))
+                          .then(() =>
+                            mybot.action.set(
+                              { placeholder: "HH:MM" },
+                              { actionType: "input" },
+                            ),
+                          );
+                      });
+                  }
+                });
+            });
+        }
+      });
+  }, []);
 
   return (
     <div>
