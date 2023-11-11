@@ -1,4 +1,4 @@
-# This repo and run `npm i`.
+## run `npm i`.
 
 ## JS
 
