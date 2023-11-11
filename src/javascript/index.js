@@ -35,8 +35,13 @@ const App = () => {
       .then((data) => {
         if (data?.selected?.value == "menu") {
           mybot.message.add({
-            text: "This functionality is currently unavailable:( We apologize for the inconvenience.",
-          });
+            text: "This functionality is currently under construction..."
+          })
+      .then(() => mybot.wait({ waitTime: 1500 }))
+      .then(() => mybot.message.add({ text: "🛠️🪚🔩⚙️🩹" }))
+      .then(() => mybot.wait({ waitTime: 1500 }))
+      .then(() => mybot.message.add({ text: "We apologize for the inconvenience." }))
+            //mybot.message.removeAll()
         } else {
           mybot.message
             .add({ text: "Where to?" })

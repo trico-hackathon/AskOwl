@@ -2950,8 +2950,16 @@ const App = ()=>{
                 waitTime: 500
             }, data)).then((data)=>{
             if (data?.selected?.value == "menu") mybot.message.add({
-                text: "This functionality is currently unavailable:( We apologize for the inconvenience."
-            });
+                text: "This functionality is currently under construction..."
+            }).then(()=>mybot.wait({
+                    waitTime: 1500
+                })).then(()=>mybot.message.add({
+                    text: "\uD83D\uDEE0️\uD83E\uDE9A\uD83D\uDD29⚙️\uD83E\uDE79"
+                })).then(()=>mybot.wait({
+                    waitTime: 1500
+                })).then(()=>mybot.message.add({
+                    text: "We apologize for the inconvenience."
+                }));
             else mybot.message.add({
                 text: "Where to?"
             }).then(()=>mybot.wait({
@@ -3089,23 +3097,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 147,
+                    lineNumber: 152,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 148,
+                    lineNumber: 153,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 146,
+            lineNumber: 151,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 145,
+        lineNumber: 150,
         columnNumber: 5
     }, undefined);
 };
@@ -3116,7 +3124,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 157,
+        lineNumber: 162,
         columnNumber: 15
     }, undefined));
 }
