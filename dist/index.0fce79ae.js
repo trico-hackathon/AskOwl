@@ -30953,8 +30953,19 @@ const busSchedule = [
 ];
 // Function to find the next available bus
 const findNextBus = (schedule, day, hour, minute, direction)=>{
+    // check for valid inputs
+    if (hour > 24 || hour < 0) return "Invalid hour";
+    if (minute > 60 || minute < 0) return "Invalid min";
+    if (day !== "Monday" && day !== "Tuesday" && day !== "Wednesday" && day !== "Thursday") return `Sorry, schedule for ${day} is currently unavailable :(`;
     // Convert input time to minutes for easier comparison
     const inputTime = hour * 60 + minute;
+    // edge case: mid night buses
+    if (direction === "Leave Bryn Mawr") {
+        if (inputTime > 1424 || inputTime < 30) return `Next available bus for ${direction} on ${day} at 00:30`;
+    } else if (direction === "Leave Haverford") {
+        if (inputTime > 1389) return `Next available bus for ${direction} on ${day} at 00:00`;
+        else if (inputTime < 45) return `Next available bus for ${direction} on ${day} at 00:45`;
+    }
     schedule = busSchedule;
     console.log(schedule);
     console.log(busSchedule);
