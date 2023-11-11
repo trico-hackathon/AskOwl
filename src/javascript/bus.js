@@ -692,7 +692,7 @@ const findNextBus = (schedule, day, hour, minute, direction) => {
       return "Invalid min";
   }
   if (day !== "Monday" && day !== "Tuesday" && day !== "Wednesday" && day !== "Thursday"){
-    return `Sorry, schedule for ${day} is currently unavailable :(`
+    return `Sorry, schedule for ${day} is currently unavailable 🥲`
   }
   
   // Convert input time to minutes for easier comparison
