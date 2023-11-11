@@ -2920,6 +2920,7 @@ const weekday = [
     "Saturday"
 ];
 const busSchedule = "[{";
+var destination;
 const mybot = (0, _botui.createBot)();
 const App = ()=>{
     _s();
@@ -2971,8 +2972,14 @@ const App = ()=>{
                 })).then((data)=>mybot.wait({
                     waitTime: 500
                 }, data)).then((data)=>{
-                if (data?.selected?.value == "bmc") console.log("bmc");
-                else console.log("hc");
+                if (data?.selected?.value == "bmc") {
+                    direction = "Leave Bryn Mawr";
+                    console.log("bmc");
+                } else {
+                    console.log("hc");
+                    direction = "Leave Haverford";
+                }
+                console.log(direction);
                 mybot.message.add({
                     text: "Now or later?"
                 }).then(()=>mybot.wait({
@@ -3001,7 +3008,6 @@ const App = ()=>{
                         let day = weekday[d.getDay()];
                         let hour = d.getHours();
                         let minute = d.getMinutes();
-                        let direction = "Leave Bryn Mawr";
                         console.log(day);
                         console.log(hour);
                         console.log(minute);
@@ -3011,7 +3017,6 @@ const App = ()=>{
                         var day1;
                         var hour1;
                         var minute1;
-                        let direction1 = "Leave Bryn Mawr";
                         mybot.message.add({
                             text: "Day of the week?"
                         }).then(()=>mybot.wait({
@@ -3069,8 +3074,8 @@ const App = ()=>{
                                 console.log(day1);
                                 console.log(hour1);
                                 console.log(minute1);
-                                console.log(direction1);
-                                console.log((0, _busJsDefault.default)(busSchedule, day1, hour1, minute1, direction1));
+                                console.log(direction);
+                                console.log((0, _busJsDefault.default)(busSchedule, day1, hour1, minute1, direction));
                             });
                         });
                     }
@@ -3084,23 +3089,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 145,
+                    lineNumber: 147,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 146,
+                    lineNumber: 148,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 144,
+            lineNumber: 146,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 143,
+        lineNumber: 145,
         columnNumber: 5
     }, undefined);
 };
@@ -3111,7 +3116,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 155,
+        lineNumber: 157,
         columnNumber: 15
     }, undefined));
 }
