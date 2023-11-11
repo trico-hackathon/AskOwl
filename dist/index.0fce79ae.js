@@ -2909,7 +2909,7 @@ var _react1 = require("@botui/react");
 var _busJs = require("./bus.js");
 var _busJsDefault = parcelHelpers.interopDefault(_busJs);
 var _defaultThemeScss = require("@botui/react/dist/styles/default.theme.scss");
-var _s = $RefreshSig$();
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
 const weekday = [
     "Sunday",
     "Monday",
@@ -2922,8 +2922,34 @@ const weekday = [
 const busSchedule = "[{";
 var destination;
 const mybot = (0, _botui.createBot)();
-const App = ()=>{
+const ReloadAction = ()=>{
     _s();
+    const bot = useBotUI() // current instance
+    ;
+    const action = useBotUIAction() // get current action
+    ;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            onClick: "window.location.href=window.location.href",
+            children: "Refresh Page"
+        }, void 0, false, {
+            fileName: "src/javascript/index.js",
+            lineNumber: 21,
+            columnNumber: 1
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/javascript/index.js",
+        lineNumber: 20,
+        columnNumber: 10
+    }, undefined);
+};
+_s(ReloadAction, "S89/TpBpRBv65Ppp5RklWGqJlsY=", true);
+_c = ReloadAction;
+const actionRenderers = {
+    "reload": ReloadAction
+};
+const App = ()=>{
+    _s1();
     (0, _react.useEffect)(()=>{
         mybot.message.add({
             text: "Hi!"
@@ -2959,7 +2985,20 @@ const App = ()=>{
                     waitTime: 1500
                 })).then(()=>mybot.message.add({
                     text: "We apologize for the inconvenience."
-                }));
+                })).then(()=>mybot.wait({
+                    waitTime: 500
+                })).then(()=>mybot.action.set({
+                    options: [
+                        {
+                            label: "Start Over",
+                            value: "0"
+                        }, 
+                    ]
+                }, {
+                    actionType: "selectButtons"
+                })).then((data)=>{
+                if (data?.selected?.value == "0") window.location.reload();
+            });
             else mybot.message.add({
                 text: "Where to?"
             }).then(()=>mybot.wait({
@@ -3009,9 +3048,6 @@ const App = ()=>{
                         waitTime: 500
                     }, data)).then((data)=>{
                     if (data?.selected?.value == "now") {
-                        mybot.message.add({
-                            text: "..."
-                        });
                         var d = new Date();
                         let day = weekday[d.getDay()];
                         let hour = d.getHours();
@@ -3021,6 +3057,20 @@ const App = ()=>{
                         console.log(minute);
                         console.log(direction);
                         console.log((0, _busJsDefault.default)(busSchedule, day, hour, minute, direction));
+                        mybot.wait({
+                            waitTime: 500
+                        }).then(()=>mybot.action.set({
+                                options: [
+                                    {
+                                        label: "Start Over",
+                                        value: "0"
+                                    }, 
+                                ]
+                            }, {
+                                actionType: "selectButtons"
+                            })).then((data)=>{
+                            if (data?.selected?.value == "0") window.location.reload();
+                        });
                     } else {
                         var day1;
                         var hour1;
@@ -3084,6 +3134,19 @@ const App = ()=>{
                                 console.log(minute1);
                                 console.log(direction);
                                 console.log((0, _busJsDefault.default)(busSchedule, day1, hour1, minute1, direction));
+                            }).then(()=>mybot.wait({
+                                    waitTime: 500
+                                })).then(()=>mybot.action.set({
+                                    options: [
+                                        {
+                                            label: "Start Over",
+                                            value: "0"
+                                        }, 
+                                    ]
+                                }, {
+                                    actionType: "selectButtons"
+                                })).then((data)=>{
+                                if (data?.selected?.value == "0") window.location.reload();
                             });
                         });
                     }
@@ -3097,39 +3160,40 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 152,
+                    lineNumber: 211,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 153,
+                    lineNumber: 212,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 151,
+            lineNumber: 210,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 150,
+        lineNumber: 209,
         columnNumber: 5
     }, undefined);
 };
-_s(App, "OD7bBpZva5O2jO+Puf00hKivP7c=");
-_c = App;
+_s1(App, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_c1 = App;
 const containerElement = document.getElementById("botui");
 if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 162,
+        lineNumber: 221,
         columnNumber: 15
     }, undefined));
 }
-var _c;
-$RefreshReg$(_c, "App");
+var _c, _c1;
+$RefreshReg$(_c, "ReloadAction");
+$RefreshReg$(_c1, "App");
 
   $parcel$ReactRefreshHelpers$5410.postlude(module);
 } finally {

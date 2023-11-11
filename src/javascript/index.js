@@ -13,6 +13,19 @@ var destination
 
 const mybot = createBot();
 
+const ReloadAction = () => {
+  const bot = useBotUI() // current instance
+  const action = useBotUIAction() // get current action
+
+  return <div>
+<button onClick="window.location.href=window.location.href">Refresh Page</button>
+  </div>
+}
+
+const actionRenderers = {
+  'reload': ReloadAction
+}
+
 const App = () => {
   useEffect(() => {
     mybot.message
@@ -41,6 +54,21 @@ const App = () => {
       .then(() => mybot.message.add({ text: "🛠️🪚🔩⚙️🩹" }))
       .then(() => mybot.wait({ waitTime: 1500 }))
       .then(() => mybot.message.add({ text: "We apologize for the inconvenience." }))
+      .then(() => mybot.wait({ waitTime: 500 }))
+      .then(() =>
+        mybot.action.set(
+          {
+            options: [
+              { label: "Start Over", value: "0" },
+            ],
+          },
+          { actionType: "selectButtons" },
+        ),
+      )
+      .then((data) => {
+          if (data?.selected?.value == "0") {
+window.location.reload();}
+                })
             //mybot.message.removeAll()
         } else {
           mybot.message
@@ -84,7 +112,6 @@ const App = () => {
                 .then((data) => mybot.wait({ waitTime: 500 }, data))
                 .then((data) => {
                   if (data?.selected?.value == "now") {
-                    mybot.message.add({ text: "..." });
                     var d = new Date();
                       let day = weekday[d.getDay()];
                     let hour = d.getHours();
@@ -94,6 +121,22 @@ const App = () => {
                       console.log(minute)
                       console.log(direction)
                         console.log(findNextBus(busSchedule, day, hour, minute, direction))
+
+      mybot.wait({ waitTime: 500 })
+      .then(() =>
+        mybot.action.set(
+          {
+            options: [
+              { label: "Start Over", value: "0" },
+            ],
+          },
+          { actionType: "selectButtons" },
+        ),
+      )
+      .then((data) => {
+          if (data?.selected?.value == "0") {
+window.location.reload();}
+                })
                   } else {
                       var day
                       var hour
@@ -137,6 +180,22 @@ const App = () => {
                                   console.log(direction)
                         console.log(findNextBus(busSchedule, day, hour, minute, direction))
                               })
+
+      .then(() => mybot.wait({ waitTime: 500 }))
+      .then(() =>
+        mybot.action.set(
+          {
+            options: [
+              { label: "Start Over", value: "0" },
+            ],
+          },
+          { actionType: "selectButtons" },
+        ),
+      )
+      .then((data) => {
+          if (data?.selected?.value == "0") {
+window.location.reload();}
+                })
 
                       });
                   }
