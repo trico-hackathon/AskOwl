@@ -161,4 +161,17 @@
   transform: translateX(-10px);
 }
 
+body {
+  font-family: Open Sans, sans-serif;
+  line-height: 1.5;
+}
+
+.botui_button {
+  padding: 7px 10px !important;
+}
+
+.botui_button:focus {
+  outline: none !important;
+}
+
 /*# sourceMappingURL=index.6718ef22.css.map */

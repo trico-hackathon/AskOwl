@@ -2906,6 +2906,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _react1 = require("@botui/react");
+var _indexCss = require("../css/index.css");
 var _busJs = require("./bus.js");
 var _busJsDefault = parcelHelpers.interopDefault(_busJs);
 var _defaultThemeScss = require("@botui/react/dist/styles/default.theme.scss");
@@ -2932,12 +2933,12 @@ const ReloadAction = ()=>{
             children: "Refresh Page"
         }, void 0, false, {
             fileName: "src/javascript/index.js",
-            lineNumber: 30,
+            lineNumber: 31,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 5
     }, undefined);
 };
@@ -2950,7 +2951,7 @@ const App = ()=>{
     _s1();
     (0, _react.useEffect)(()=>{
         mybot.message.add({
-            text: "Hi!"
+            text: "Hi \uD83D\uDC4B"
         }).then(()=>mybot.wait({
                 waitTime: 1000
             })).then(()=>mybot.message.add({
@@ -2960,11 +2961,11 @@ const App = ()=>{
             })).then(()=>mybot.action.set({
                 options: [
                     {
-                        label: "Blue Bus",
+                        label: "Blue Bus \uD83D\uDE8C",
                         value: "bus"
                     },
                     {
-                        label: "Menu",
+                        label: "Menu \uD83E\uDD59",
                         value: "menu"
                     }, 
                 ]
@@ -3004,11 +3005,11 @@ const App = ()=>{
                 })).then(()=>mybot.action.set({
                     options: [
                         {
-                            label: "Bryn Mawr",
+                            label: "Bryn Mawr \uD83E\uDD89",
                             value: "bmc"
                         },
                         {
-                            label: "Haverford",
+                            label: "Haverford \uD83D\uDC3F️",
                             value: "hc"
                         }, 
                     ]
@@ -3032,11 +3033,11 @@ const App = ()=>{
                     })).then(()=>mybot.action.set({
                         options: [
                             {
-                                label: "Now",
+                                label: "Now \uD83C\uDFC3",
                                 value: "now"
                             },
                             {
-                                label: "Later",
+                                label: "Later \uD83D\uDEB6",
                                 value: "later"
                             }, 
                         ]
@@ -3120,7 +3121,7 @@ const App = ()=>{
                             }, data)).then((data)=>{
                             day1 = weekday[data?.selected?.value];
                             mybot.message.add({
-                                text: "Please enter the time:"
+                                text: "Time?"
                             }).then(()=>mybot.wait({
                                     waitTime: 500
                                 })).then(()=>mybot.action.set({
@@ -3173,23 +3174,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 253,
+                    lineNumber: 254,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 254,
+                    lineNumber: 255,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 252,
+            lineNumber: 253,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 251,
+        lineNumber: 252,
         columnNumber: 5
     }, undefined);
 };
@@ -3200,7 +3201,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 263,
+        lineNumber: 264,
         columnNumber: 15
     }, undefined));
 }
@@ -3213,7 +3214,7 @@ $RefreshReg$(_c1, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"at5rh","botui":"gSsze","react":"ZwxmC","react-dom/client":"kO7oc","@botui/react":"jF3xu","./bus.js":"idJm0","@botui/react/dist/styles/default.theme.scss":"k61Ri","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1nJSY"}],"at5rh":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"at5rh","botui":"gSsze","react":"ZwxmC","react-dom/client":"kO7oc","@botui/react":"jF3xu","./bus.js":"idJm0","@botui/react/dist/styles/default.theme.scss":"k61Ri","@parcel/transformer-js/src/esmodule-helpers.js":"fswdS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1nJSY","../css/index.css":"lyxGu"}],"at5rh":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -30891,10 +30892,10 @@ const findNextBus = (schedule, day, hour, minute, direction)=>{
             });
             var ret;
             // Display the result using alert
-            if (nextBusTime) ret = `Next available bus for ${direction} on ${day} at ${nextBusTime}`;
-            else ret = `No more buses for ${direction} on ${day} today.`;
-        } else ret = `No schedule found for ${direction} on ${day}.`;
-    } else ret = `No schedule found for ${day}.`;
+            if (nextBusTime) ret = `Next available bus for ${direction} on ${day} at ${nextBusTime} ⏳`;
+            else ret = `No more buses for ${direction} on ${day} 🥲`;
+        } else ret = `No schedule found for ${direction} on ${day} 🧐`;
+    } else ret = `No schedule found for ${day} 🥲`;
     return ret;
 };
 function convertTo24Hr(timeString) {
@@ -31083,6 +31084,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"hqugw"}]},["cp6b7","beuiH","dP9tu"], "dP9tu", "parcelRequire6d7c")
+},{"react-refresh/runtime":"hqugw"}],"lyxGu":[function() {},{}]},["cp6b7","beuiH","dP9tu"], "dP9tu", "parcelRequire6d7c")
 
 //# sourceMappingURL=index.0fce79ae.js.map

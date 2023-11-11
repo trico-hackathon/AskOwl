@@ -2,6 +2,7 @@ import { createBot } from "botui";
 import React, { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { BotUI, BotUIAction, BotUIMessageList } from "@botui/react";
+import "../css/index.css";
 
 import findNextBus from "./bus.js";
 
@@ -41,7 +42,7 @@ const actionRenderers = {
 const App = () => {
   useEffect(() => {
     mybot.message
-      .add({ text: "Hi!" })
+      .add({ text: "Hi 👋" })
       .then(() => mybot.wait({ waitTime: 1000 }))
       .then(() => mybot.message.add({ text: "How can I help you?" }))
       .then(() => mybot.wait({ waitTime: 500 }))
@@ -49,8 +50,8 @@ const App = () => {
         mybot.action.set(
           {
             options: [
-              { label: "Blue Bus", value: "bus" },
-              { label: "Menu", value: "menu" },
+              { label: "Blue Bus 🚌", value: "bus" },
+              { label: "Menu 🥙", value: "menu" },
             ],
           },
           { actionType: "selectButtons" },
@@ -94,8 +95,8 @@ const App = () => {
               mybot.action.set(
                 {
                   options: [
-                    { label: "Bryn Mawr", value: "bmc" },
-                    { label: "Haverford", value: "hc" },
+                    { label: "Bryn Mawr 🦉", value: "bmc" },
+                    { label: "Haverford 🐿️", value: "hc" },
                   ],
                 },
                 { actionType: "selectButtons" },
@@ -118,8 +119,8 @@ const App = () => {
                   mybot.action.set(
                     {
                       options: [
-                        { label: "Now", value: "now" },
-                        { label: "Later", value: "later" },
+                        { label: "Now 🏃", value: "now" },
+                        { label: "Later 🚶", value: "later" },
                       ],
                     },
                     { actionType: "selectButtons" },
@@ -188,7 +189,7 @@ const App = () => {
                       .then((data) => {
                         day = weekday[data?.selected?.value];
                         mybot.message
-                          .add({ text: "Please enter the time:" })
+                          .add({ text: "Time?" })
                           .then(() => mybot.wait({ waitTime: 500 }))
                           .then(() =>
                             mybot.action.set(

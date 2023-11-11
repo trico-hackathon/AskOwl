@@ -34,15 +34,15 @@ const findNextBus = (schedule, day, hour, minute, direction) => {
         var ret
       // Display the result using alert
       if (nextBusTime) {
-        ret = `Next available bus for ${direction} on ${day} at ${nextBusTime}`;
+        ret = `Next available bus for ${direction} on ${day} at ${nextBusTime} ⏳`;
       } else {
-        ret = `No more buses for ${direction} on ${day} today.`;
+        ret = `No more buses for ${direction} on ${day} 🥲`;
       }
     } else {
-      ret = `No schedule found for ${direction} on ${day}.`;
+      ret = `No schedule found for ${direction} on ${day} 🧐`;
     }
   } else {
-    ret = `No schedule found for ${day}.`;
+    ret = `No schedule found for ${day} 🥲`;
   }
     return ret
 }
