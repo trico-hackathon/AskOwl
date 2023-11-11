@@ -3249,23 +3249,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 422,
+                    lineNumber: 424,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 423,
+                    lineNumber: 425,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 421,
+            lineNumber: 423,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 420,
+        lineNumber: 422,
         columnNumber: 5
     }, undefined);
 };
@@ -3276,7 +3276,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 432,
+        lineNumber: 434,
         columnNumber: 15
     }, undefined));
 }
@@ -30243,7 +30243,7 @@ parcelHelpers.defineInteropFlag(exports);
 // const busSchedule = [{"Monday": [{"Leave Bryn Mawr": ["7:35 a.m.", "8:15 a.m.", /* ... */]}, /* ... */]}];
 const busSchedule = [
     {
-        "Monday": [
+        Monday: [
             {
                 "Leave Bryn Mawr": [
                     "7:35 a.m.",
@@ -30279,7 +30279,7 @@ const busSchedule = [
                     "10:15 p.m.",
                     "10:55 p.m.",
                     "11:45 p.m.",
-                    "12:30 a.m."
+                    "12:30 a.m.", 
                 ]
             },
             {
@@ -30317,7 +30317,7 @@ const busSchedule = [
                     "10:25 p.m.",
                     "11:05 p.m.",
                     "11:55 p.m.",
-                    "12:40 a.m."
+                    "12:40 a.m.", 
                 ]
             },
             {
@@ -30355,7 +30355,7 @@ const busSchedule = [
                     "10:30 p.m.",
                     "11:10 p.m.",
                     "12 a.m.",
-                    "12:45 a.m."
+                    "12:45 a.m.", 
                 ]
             },
             {
@@ -30393,13 +30393,13 @@ const busSchedule = [
                     "10:40 p.m.",
                     "11:20 p.m.",
                     "12:10 a.m.",
-                    "12:55 a.m."
+                    "12:55 a.m.", 
                 ]
-            }
+            }, 
         ]
     },
     {
-        "Tuesday": [
+        Tuesday: [
             {
                 "Leave Bryn Mawr": [
                     "7:20 a.m.",
@@ -30435,7 +30435,7 @@ const busSchedule = [
                     "10:15 p.m.",
                     "10:55 p.m.",
                     "11:45 p.m.",
-                    "12:30 a.m."
+                    "12:30 a.m.", 
                 ]
             },
             {
@@ -30473,7 +30473,7 @@ const busSchedule = [
                     "10:25 p.m.",
                     "11:05 p.m.",
                     "11:55 p.m.",
-                    "12:40 a.m."
+                    "12:40 a.m.", 
                 ]
             },
             {
@@ -30511,7 +30511,7 @@ const busSchedule = [
                     "10:30 p.m.",
                     "11:10 p.m.",
                     "12 a.m.",
-                    "12:45 a.m."
+                    "12:45 a.m.", 
                 ]
             },
             {
@@ -30549,13 +30549,13 @@ const busSchedule = [
                     "10:40 p.m.",
                     "11:20 p.m.",
                     "12:10 a.m.",
-                    "12:55 a.m."
+                    "12:55 a.m.", 
                 ]
-            }
+            }, 
         ]
     },
     {
-        "Wednesday": [
+        Wednesday: [
             {
                 "Leave Bryn Mawr": [
                     "7:35 a.m.",
@@ -30591,7 +30591,7 @@ const busSchedule = [
                     "10:15 p.m.",
                     "10:55 p.m.",
                     "11:45 p.m.",
-                    "12:30 AM"
+                    "12:30 AM", 
                 ]
             },
             {
@@ -30629,7 +30629,7 @@ const busSchedule = [
                     "10:25 p.m.",
                     "11:05 p.m.",
                     "11:55 p.m.",
-                    "12:40 a.m."
+                    "12:40 a.m.", 
                 ]
             },
             {
@@ -30667,7 +30667,7 @@ const busSchedule = [
                     "10:30 p.m.",
                     "11:10 p.m.",
                     "12 a.m.",
-                    "12:45 a.m."
+                    "12:45 a.m.", 
                 ]
             },
             {
@@ -30705,13 +30705,13 @@ const busSchedule = [
                     "10:40 p.m.",
                     "11:20 p.m.",
                     "12:10a.m.",
-                    "12:55 a.m."
+                    "12:55 a.m.", 
                 ]
-            }
+            }, 
         ]
     },
     {
-        "Thursday": [
+        Thursday: [
             {
                 "Leave Bryn Mawr": [
                     "7:20 a.m.",
@@ -30747,7 +30747,7 @@ const busSchedule = [
                     "10:15 p.m.",
                     "10:55 p.m.",
                     "11:45 p.m.",
-                    "12:30 a.m."
+                    "12:30 a.m.", 
                 ]
             },
             {
@@ -30785,7 +30785,7 @@ const busSchedule = [
                     "10:25 p.m.",
                     "11:05 p.m.",
                     "11:55 p.m.",
-                    "12:40 a.m."
+                    "12:40 a.m.", 
                 ]
             },
             {
@@ -30823,7 +30823,7 @@ const busSchedule = [
                     "10:30 p.m.",
                     "11:10 p.m.",
                     "12 a.m.",
-                    "12:45 a.m."
+                    "12:45 a.m.", 
                 ]
             },
             {
@@ -30861,13 +30861,13 @@ const busSchedule = [
                     "10:40 p.m.",
                     "11:20 p.m.",
                     "12:10 a.m.",
-                    "12:55 a.m."
+                    "12:55 a.m.", 
                 ]
-            }
+            }, 
         ]
     },
     {
-        "Friday": [
+        Friday: [
             {
                 "Leave Bryn Mawr": []
             },
@@ -30879,7 +30879,7 @@ const busSchedule = [
             },
             {
                 "Arrive Bryn Mawr": []
-            }
+            }, 
         ]
     },
     {
@@ -30898,7 +30898,7 @@ const busSchedule = [
             },
             {
                 "Leaves Suburban Square": []
-            }
+            }, 
         ]
     },
     {
@@ -30908,11 +30908,11 @@ const busSchedule = [
             },
             {
                 "Haverford to Bryn Mawr": []
-            }
+            }, 
         ]
     },
     {
-        "Sunday": [
+        Sunday: [
             {
                 "Bryn Mawr to Haverford": [
                     "7:55 a.m.",
@@ -30923,7 +30923,7 @@ const busSchedule = [
                     "9:15 a.m.",
                     "9:10 a.m.",
                     "9:30 and 9:40 a.m.",
-                    "9:30 and 9:40 a.m."
+                    "9:30 and 9:40 a.m.", 
                 ]
             },
             {
@@ -30936,11 +30936,11 @@ const busSchedule = [
                     "9:25 a.m.",
                     "9:20 a.m.",
                     "9:45 a.m.",
-                    "9:50 a.m."
+                    "9:50 a.m.", 
                 ]
-            }
+            }, 
         ]
-    }
+    }, 
 ];
 // Function to find the next available bus
 const findNextBus = (schedule, day, hour, minute, direction)=>{
@@ -30966,10 +30966,12 @@ const findNextBus = (schedule, day, hour, minute, direction)=>{
                 return busTimeInMinutes > inputTime;
             });
             var ret;
+            d = direction.split(/\s+/);
+            d = d.slice(1, d.length + 1).join(" ");
             // Display the result using alert
-            if (nextBusTime) ret = `Next available bus for ${direction} on ${day} at ${nextBusTime} ⏳`;
-            else ret = `No more buses for ${direction} on ${day} 🥲`;
-        } else ret = `No schedule found for ${direction} on ${day} 🧐`;
+            if (nextBusTime) ret = `The next available bus to ${d} leaves at ${nextBusTime} on ${day} ⏳`;
+            else ret = `There are no more buses to ${d} on ${day} 🥲`;
+        } else ret = `No schedule found for buses to ${d} on ${day} 🧐`;
     } else ret = `No schedule found for ${day} 🥲`;
     return ret;
 };
@@ -30985,7 +30987,7 @@ function convertTo24Hr(timeString) {
 // convert time testing
 // const amPmTime = '12:30 a.m.';
 // const convertedTime = convertTo24Hr(amPmTime);
-// console.log(convertedTime); 
+// console.log(convertedTime);
 const directionSchedule = {
     "Leave Bryn Mawr": [
         "7:20 a.m.",
@@ -31021,7 +31023,7 @@ const directionSchedule = {
         "10:15 p.m.",
         "10:55 p.m.",
         "11:45 p.m.",
-        "12:30 a.m."
+        "12:30 a.m.", 
     ]
 };
 // console.log(directionSchedule);
