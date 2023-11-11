@@ -120,6 +120,7 @@ const App = () => {
                             mybot.action.set(
                               { placeholder: "HH:MM" },
                               { actionType: "input" },
+{ sub_type: "time" },
                             ),
                           )
                               .then((data) => {
