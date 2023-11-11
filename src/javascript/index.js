@@ -193,8 +193,8 @@ const App = () => {
                           .then((data) => {
                             console.log(data);
                             time = data.value.split(":");
-                            hour = time[0];
-                            minute = time[1];
+                            hour = parseInt(time[0], 10);
+                            minute = parseInt(time[1], 10);
                             console.log(day);
                             console.log(hour);
                             console.log(minute);

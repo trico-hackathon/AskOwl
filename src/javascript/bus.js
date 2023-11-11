@@ -98,12 +98,13 @@ const directionSchedule = {
 
 
 // Example usage
+/*
 const day = "Wednesday";
 const hour = 19;
 const minute = 09;
 const direction = "Leave Bryn Mawr";
 
 findNextBus(busSchedule, day, hour, minute, direction);
-
+*/
 
 export default findNextBus;

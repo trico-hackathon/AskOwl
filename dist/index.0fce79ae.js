@@ -3125,8 +3125,8 @@ const App = ()=>{
                                 })).then((data)=>{
                                 console.log(data);
                                 time = data.value.split(":");
-                                hour1 = time[0];
-                                minute1 = time[1];
+                                hour1 = parseInt(time[0], 10);
+                                minute1 = parseInt(time[1], 10);
                                 console.log(day1);
                                 console.log(hour1);
                                 console.log(minute1);
@@ -30937,12 +30937,14 @@ const directionSchedule = {
 // directionSchedule['Leave Bryn Mawr'] = convertedTimes;
 // console.log(directionSchedule);
 // Example usage
+/*
 const day = "Wednesday";
 const hour = 19;
 const minute = 09;
 const direction = "Leave Bryn Mawr";
+
 findNextBus(busSchedule, day, hour, minute, direction);
-exports.default = findNextBus;
+*/ exports.default = findNextBus;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"fswdS"}],"k61Ri":[function() {},{}],"1nJSY":[function(require,module,exports) {
 "use strict";
