@@ -3058,10 +3058,11 @@ const App = ()=>{
                             }).then(()=>mybot.wait({
                                     waitTime: 500
                                 })).then(()=>mybot.action.set({
-                                    placeholder: "HH:MM"
+                                    type: "time"
                                 }, {
                                     actionType: "input"
                                 })).then((data)=>{
+                                console.log(data);
                                 time = data.value.split(":");
                                 hour1 = time[0];
                                 minute1 = time[1];
@@ -3083,23 +3084,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 147,
+                    lineNumber: 145,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 148,
+                    lineNumber: 146,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 146,
+            lineNumber: 144,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 145,
+        lineNumber: 143,
         columnNumber: 5
     }, undefined);
 };
@@ -3110,7 +3111,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 157,
+        lineNumber: 155,
         columnNumber: 15
     }, undefined));
 }

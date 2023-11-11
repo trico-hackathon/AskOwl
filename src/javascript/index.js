@@ -117,13 +117,10 @@ const App = () => {
                           .add({ text: "Please enter the time:" })
                           .then(() => mybot.wait({ waitTime: 500 }))
                           .then(() =>
-                            mybot.action.set(
-  { actionType: "input" },
-  { subType: "time" },
-  { placeholder: "HH:MM" },
-                       ),
+                              mybot.action.set({ type: 'time' }, { actionType: 'input' })
   )
                               .then((data) => {
+                                  console.log(data)
                                   time = data.value.split(":")
                                   hour = time[0]
                                   minute = time[1]
