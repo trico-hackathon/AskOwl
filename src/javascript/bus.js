@@ -684,6 +684,8 @@ const busSchedule = [
 // Function to find the next available bus
 const findNextBus = (schedule, day, hour, minute, direction) => {
 
+      d = direction.split(/\s+/);
+      d = d.slice(1, d.length + 1).join(" ");
 // check for valid inputs
   if (hour > 24 || hour < 0){
       return "Invalid hour";
@@ -701,15 +703,15 @@ const findNextBus = (schedule, day, hour, minute, direction) => {
   // edge case: mid night buses
   if (direction === "Leave Bryn Mawr"){
     if (inputTime > 1424 || inputTime < 30){
-      return `Next available bus for ${direction} on ${day} at 00:30`
+        return `The next available bus to ${d} leaves at 00:30 on ${day} ⏳`;
     }
   }
   else if (direction === "Leave Haverford"){
     if (inputTime > 1389){
-      return `Next available bus for ${direction} on ${day} at 00:00`
+        return `The next available bus to ${d} leaves at 00:00 on ${day} ⏳`;
     }
     else if (inputTime < 45){
-      return `Next available bus for ${direction} on ${day} at 00:45`
+        return `The next available bus to ${d} leaves at 00:45 on ${day} ⏳`;
     }
   }
 
@@ -741,8 +743,6 @@ const findNextBus = (schedule, day, hour, minute, direction) => {
 
       var ret;
 
-      d = direction.split(/\s+/);
-      d = d.slice(1, d.length + 1).join(" ");
       // Display the result using alert
       if (nextBusTime) {
         ret = `The next available bus to ${d} leaves at ${nextBusTime} on ${day} ⏳`;

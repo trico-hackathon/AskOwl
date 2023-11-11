@@ -30953,18 +30953,20 @@ const busSchedule = [
 ];
 // Function to find the next available bus
 const findNextBus = (schedule, day, hour, minute, direction)=>{
+    d = direction.split(/\s+/);
+    d = d.slice(1, d.length + 1).join(" ");
     // check for valid inputs
     if (hour > 24 || hour < 0) return "Invalid hour";
     if (minute > 60 || minute < 0) return "Invalid min";
-    if (day !== "Monday" && day !== "Tuesday" && day !== "Wednesday" && day !== "Thursday") return `Sorry, schedule for ${day} is currently unavailable :(`;
+    if (day !== "Monday" && day !== "Tuesday" && day !== "Wednesday" && day !== "Thursday") return `Sorry, schedule for ${day} is currently unavailable 🥲`;
     // Convert input time to minutes for easier comparison
     const inputTime = hour * 60 + minute;
     // edge case: mid night buses
     if (direction === "Leave Bryn Mawr") {
-        if (inputTime > 1424 || inputTime < 30) return `Next available bus for ${direction} on ${day} at 00:30`;
+        if (inputTime > 1424 || inputTime < 30) return `The next available bus to ${d} leaves at 00:30 on ${day} ⏳`;
     } else if (direction === "Leave Haverford") {
-        if (inputTime > 1389) return `Next available bus for ${direction} on ${day} at 00:00`;
-        else if (inputTime < 45) return `Next available bus for ${direction} on ${day} at 00:45`;
+        if (inputTime > 1389) return `The next available bus to ${d} leaves at 00:00 on ${day} ⏳`;
+        else if (inputTime < 45) return `The next available bus to ${d} leaves at 00:45 on ${day} ⏳`;
     }
     schedule = busSchedule;
     console.log(schedule);
@@ -30986,8 +30988,6 @@ const findNextBus = (schedule, day, hour, minute, direction)=>{
                 return busTimeInMinutes > inputTime;
             });
             var ret;
-            d = direction.split(/\s+/);
-            d = d.slice(1, d.length + 1).join(" ");
             // Display the result using alert
             if (nextBusTime) ret = `The next available bus to ${d} leaves at ${nextBusTime} on ${day} ⏳`;
             else ret = `There are no more buses to ${d} on ${day} 🥲`;
