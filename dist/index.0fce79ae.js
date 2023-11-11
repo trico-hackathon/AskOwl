@@ -2920,8 +2920,17 @@ const weekday = [
     "Friday",
     "Saturday", 
 ];
-const busSchedule = [];
+const busURL = "https://raw.githubusercontent.com/teriyake/askowl-ui/main/data/bus_sch.json";
+var busSchedule = [];
 var destination;
+async function fetchJSON(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    console.log(json);
+    return json;
+}
+const busSch = fetchJSON(busURL);
+console.log(busSch);
 const mybot = (0, _botui.createBot)();
 const ReloadAction = ()=>{
     _s();
@@ -2933,12 +2942,12 @@ const ReloadAction = ()=>{
             children: "Refresh Page"
         }, void 0, false, {
             fileName: "src/javascript/index.js",
-            lineNumber: 31,
+            lineNumber: 42,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 30,
+        lineNumber: 41,
         columnNumber: 5
     }, undefined);
 };
@@ -3249,23 +3258,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 424,
+                    lineNumber: 435,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 425,
+                    lineNumber: 436,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 423,
+            lineNumber: 434,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 422,
+        lineNumber: 433,
         columnNumber: 5
     }, undefined);
 };
@@ -3276,7 +3285,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 434,
+        lineNumber: 445,
         columnNumber: 15
     }, undefined));
 }

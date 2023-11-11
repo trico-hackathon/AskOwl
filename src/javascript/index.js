@@ -17,8 +17,19 @@ const weekday = [
   "Friday",
   "Saturday",
 ];
-const busSchedule = [];
+const busURL = "https://raw.githubusercontent.com/teriyake/askowl-ui/main/data/bus_sch.json";
+var busSchedule = [];
 var destination;
+
+async function fetchJSON(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    console.log(json);
+    return json;
+}
+
+const busSch = fetchJSON(busURL);
+console.log(busSch);
 
 const mybot = createBot();
 
