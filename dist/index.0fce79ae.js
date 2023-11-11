@@ -2947,16 +2947,26 @@ _c = ReloadAction;
 const actionRenderers = {
     reload: ReloadAction
 };
+var utterance;
+var isVoiceOn;
 const App = ()=>{
     _s1();
     (0, _react.useEffect)(()=>{
         mybot.message.add({
             text: "Hi \uD83D\uDC4B"
+        }).then(()=>{
+            utterance = new SpeechSynthesisUtterance("Hi! Would you like to turn off the text to voice accessibility feature?");
+            speechSynthesis.speak(utterance);
+        }).then(()=>{
+            isVoiceOn = false;
         }).then(()=>mybot.wait({
                 waitTime: 1000
             })).then(()=>mybot.message.add({
                 text: "How can I help you?"
-            })).then(()=>mybot.wait({
+            })).then(()=>{
+            utterance = new SpeechSynthesisUtterance("How can I help you?");
+            if (isVoiceOn) speechSynthesis.speak(utterance);
+        }).then(()=>mybot.wait({
                 waitTime: 500
             })).then(()=>mybot.action.set({
                 options: [
@@ -3174,23 +3184,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 254,
+                    lineNumber: 270,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 255,
+                    lineNumber: 271,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 253,
+            lineNumber: 269,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 252,
+        lineNumber: 268,
         columnNumber: 5
     }, undefined);
 };
@@ -3201,7 +3211,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 264,
+        lineNumber: 280,
         columnNumber: 15
     }, undefined));
 }
@@ -31084,6 +31094,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"hqugw"}],"lyxGu":[function() {},{}]},["cp6b7","beuiH","dP9tu"], "dP9tu", "parcelRequire6d7c")
+},{"react-refresh/runtime":"hqugw"}],"lyxGu":[function() {},{}]},["cp6b7","beuiH","dP9tu"], "dP9tu", "parcelRequirefd0c")
 
 //# sourceMappingURL=index.0fce79ae.js.map

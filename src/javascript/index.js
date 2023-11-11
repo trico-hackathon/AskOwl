@@ -39,12 +39,28 @@ const actionRenderers = {
   reload: ReloadAction,
 };
 
+var utterance;
+var isVoiceOn;
+
 const App = () => {
   useEffect(() => {
     mybot.message
       .add({ text: "Hi 👋" })
+          .then(() => {
+              utterance = new SpeechSynthesisUtterance("Hi! Would you like to turn off the text to speech accessibility feature?");
+speechSynthesis.speak(utterance);
+          })
+          .then(() => {
+              isVoiceOn = false;
+          })
       .then(() => mybot.wait({ waitTime: 1000 }))
       .then(() => mybot.message.add({ text: "How can I help you?" }))
+          .then(() => {
+utterance = new SpeechSynthesisUtterance("How can I help you?");
+              if (isVoiceOn) {
+speechSynthesis.speak(utterance);
+              }
+          })
       .then(() => mybot.wait({ waitTime: 500 }))
       .then(() =>
         mybot.action.set(
