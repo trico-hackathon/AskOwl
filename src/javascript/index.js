@@ -117,11 +117,8 @@ const App = () => {
                           .add({ text: "Please enter the time:" })
                           .then(() => mybot.wait({ waitTime: 500 }))
                           .then(() =>
-                            mybot.action.set(
-                              { placeholder: "HH:MM" },
-                              { actionType: "input" },
-{ sub_type: "time" },
-                            ),
+                            mybot.action.text(
+                   { action: { sub_type: 'time', placeholder: 'HH:MM' } }
                           )
                               .then((data) => {
                                   time = data.value.split(":")
