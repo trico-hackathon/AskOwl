@@ -2954,11 +2954,31 @@ const App = ()=>{
     (0, _react.useEffect)(()=>{
         mybot.message.add({
             text: "Hi \uD83D\uDC4B"
-        }).then(()=>{
-            utterance = new SpeechSynthesisUtterance("Hi! Would you like to turn off the text to voice accessibility feature?");
+        }).then(()=>mybot.wait({
+                waitTime: 500
+            })).then(()=>mybot.message.add({
+                text: "Would you like to turn off the text-to-speech accessibility feature?"
+            })).then(()=>{
+            utterance = new SpeechSynthesisUtterance("Hi! Would you like to turn off the text-to-speech accessibility feature?");
             speechSynthesis.speak(utterance);
         }).then(()=>{
-            isVoiceOn = false;
+            utterance = new SpeechSynthesisUtterance("Button 1: Yes. Button 2: No.");
+            speechSynthesis.speak(utterance);
+        }).then(()=>mybot.action.set({
+                options: [
+                    {
+                        label: "Yes",
+                        value: false
+                    },
+                    {
+                        label: "No",
+                        value: true
+                    }, 
+                ]
+            }, {
+                actionType: "selectButtons"
+            })).then((data)=>{
+            isVoiceOn = data?.selected?.value;
         }).then(()=>mybot.wait({
                 waitTime: 1000
             })).then(()=>mybot.message.add({
@@ -2968,7 +2988,10 @@ const App = ()=>{
             if (isVoiceOn) speechSynthesis.speak(utterance);
         }).then(()=>mybot.wait({
                 waitTime: 500
-            })).then(()=>mybot.action.set({
+            })).then(()=>{
+            utterance = new SpeechSynthesisUtterance("Button 1: Blue Bus. Button 2: Menu.");
+            if (isVoiceOn) speechSynthesis.speak(utterance);
+        }).then(()=>mybot.action.set({
                 options: [
                     {
                         label: "Blue Bus \uD83D\uDE8C",
@@ -2986,6 +3009,9 @@ const App = ()=>{
             }, data)).then((data)=>{
             if (data?.selected?.value == "menu") mybot.message.add({
                 text: "This functionality is currently under construction..."
+            }).then(()=>{
+                utterance = new SpeechSynthesisUtterance("This functionality is currently under construction...");
+                if (isVoiceOn) speechSynthesis.speak(utterance);
             }).then(()=>mybot.wait({
                     waitTime: 1500
                 })).then(()=>mybot.message.add({
@@ -2994,9 +3020,15 @@ const App = ()=>{
                     waitTime: 1500
                 })).then(()=>mybot.message.add({
                     text: "We apologize for the inconvenience."
-                })).then(()=>mybot.wait({
+                })).then(()=>{
+                utterance = new SpeechSynthesisUtterance("We apologize for the inconvenience.");
+                if (isVoiceOn) speechSynthesis.speak(utterance);
+            }).then(()=>mybot.wait({
                     waitTime: 500
-                })).then(()=>mybot.action.set({
+                })).then(()=>{
+                utterance = new SpeechSynthesisUtterance("Button 1: Start Over.");
+                if (isVoiceOn) speechSynthesis.speak(utterance);
+            }).then(()=>mybot.action.set({
                     options: [
                         {
                             label: "Start Over",
@@ -3010,9 +3042,15 @@ const App = ()=>{
             });
             else mybot.message.add({
                 text: "Where to?"
+            }).then(()=>{
+                utterance = new SpeechSynthesisUtterance("Where to?");
+                if (isVoiceOn) speechSynthesis.speak(utterance);
             }).then(()=>mybot.wait({
                     waitTime: 500
-                })).then(()=>mybot.action.set({
+                })).then(()=>{
+                utterance = new SpeechSynthesisUtterance("Button 1: Bryn Mawr. Button 2: Haverford.");
+                if (isVoiceOn) speechSynthesis.speak(utterance);
+            }).then(()=>mybot.action.set({
                     options: [
                         {
                             label: "Bryn Mawr \uD83E\uDD89",
@@ -3038,9 +3076,15 @@ const App = ()=>{
                 console.log(direction);
                 mybot.message.add({
                     text: "Now or later?"
+                }).then(()=>{
+                    utterance = new SpeechSynthesisUtterance("Now or Later?");
+                    if (isVoiceOn) speechSynthesis.speak(utterance);
                 }).then(()=>mybot.wait({
                         waitTime: 500
-                    })).then(()=>mybot.action.set({
+                    })).then(()=>{
+                    utterance = new SpeechSynthesisUtterance("Button 1: Now. Button 2: Later.");
+                    if (isVoiceOn) speechSynthesis.speak(utterance);
+                }).then(()=>mybot.action.set({
                         options: [
                             {
                                 label: "Now \uD83C\uDFC3",
@@ -3071,9 +3115,15 @@ const App = ()=>{
                             waitTime: 1000
                         }).then(()=>mybot.message.add({
                                 text: res
-                            })).then(()=>mybot.wait({
+                            })).then(()=>{
+                            utterance = new SpeechSynthesisUtterance(res);
+                            if (isVoiceOn) speechSynthesis.speak(utterance);
+                        }).then(()=>mybot.wait({
                                 waitTime: 500
-                            })).then(()=>mybot.action.set({
+                            })).then(()=>{
+                            utterance = new SpeechSynthesisUtterance("Button 1: Start Over.");
+                            if (isVoiceOn) speechSynthesis.speak(utterance);
+                        }).then(()=>mybot.action.set({
                                 options: [
                                     {
                                         label: "Start Over",
@@ -3091,6 +3141,12 @@ const App = ()=>{
                         var minute1;
                         mybot.message.add({
                             text: "Day of the week?"
+                        }).then(()=>{
+                            utterance = new SpeechSynthesisUtterance("Please select the day of the week.");
+                            if (isVoiceOn) speechSynthesis.speak(utterance);
+                        }).then(()=>{
+                            utterance = new SpeechSynthesisUtterance("Button 1: Monday. Button 2: Tuesday. Button 3: Wednesday. Button 4: Thursday. Button 5: Friday. Button 6: Saturday. Button 7: Sunday.");
+                            if (isVoiceOn) speechSynthesis.speak(utterance);
                         }).then(()=>mybot.wait({
                                 waitTime: 500
                             })).then(()=>mybot.action.set({
@@ -3132,6 +3188,9 @@ const App = ()=>{
                             day1 = weekday[data?.selected?.value];
                             mybot.message.add({
                                 text: "Time?"
+                            }).then(()=>{
+                                utterance = new SpeechSynthesisUtterance("Please select the time of the day.");
+                                if (isVoiceOn) speechSynthesis.speak(utterance);
                             }).then(()=>mybot.wait({
                                     waitTime: 500
                                 })).then(()=>mybot.action.set({
@@ -3157,9 +3216,15 @@ const App = ()=>{
                                     mybot.message.add({
                                         text: res1
                                     });
+                                }).then(()=>{
+                                    utterance = new SpeechSynthesisUtterance(res1);
+                                    if (isVoiceOn) speechSynthesis.speak(utterance);
                                 }).then(()=>mybot.wait({
                                         waitTime: 500
-                                    })).then(()=>mybot.action.set({
+                                    })).then(()=>{
+                                    utterance = new SpeechSynthesisUtterance("Button 1: Start Over.");
+                                    if (isVoiceOn) speechSynthesis.speak(utterance);
+                                }).then(()=>mybot.action.set({
                                         options: [
                                             {
                                                 label: "Start Over",
@@ -3184,23 +3249,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 270,
+                    lineNumber: 422,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 271,
+                    lineNumber: 423,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 269,
+            lineNumber: 421,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 268,
+        lineNumber: 420,
         columnNumber: 5
     }, undefined);
 };
@@ -3211,7 +3276,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 280,
+        lineNumber: 432,
         columnNumber: 15
     }, undefined));
 }
