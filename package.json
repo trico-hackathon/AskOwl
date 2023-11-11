@@ -2,7 +2,7 @@
   "name": "react-quickstart",
   "scripts": {
     "dev-js": "parcel --no-cache src/javascript/index.js",
-    "build": "parcel build src/javascript/index.js"
+    "build": "parcel build src/javascript/index.js --no-cache"
   },
   "dependencies": {
     "@botui/react": "^1.1.1",
