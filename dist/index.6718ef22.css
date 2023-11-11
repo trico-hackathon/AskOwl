@@ -167,11 +167,18 @@ body {
 }
 
 .botui_button {
+  margin: 7px 20px 7px 2px !important;
   padding: 7px 10px !important;
 }
 
 .botui_button:focus {
   outline: none !important;
+}
+
+.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select {
+  padding: none !important;
+  margin: 7px 35px !important;
+  font-size: medium !important;
 }
 
 /*# sourceMappingURL=index.6718ef22.css.map */

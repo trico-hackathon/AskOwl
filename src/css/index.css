@@ -7,8 +7,15 @@ body {
 
 .botui_button {
   padding: 7px 10px !important;
+  margin: 7px 20px 7px 2px !important;
 }
 
 .botui_button:focus {
     outline: none !important;
+}
+
+.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select {
+    font-size: medium !important;
+    margin: 7px 35px !important;
+    padding: none !important;
 }
