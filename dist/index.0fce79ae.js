@@ -2917,36 +2917,34 @@ const weekday = [
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday", 
 ];
-const busSchedule = "[{";
+const busSchedule = [];
 var destination;
 const mybot = (0, _botui.createBot)();
 const ReloadAction = ()=>{
     _s();
-    const bot = useBotUI() // current instance
-    ;
-    const action = useBotUIAction() // get current action
-    ;
+    const bot = useBotUI(); // current instance
+    const action = useBotUIAction(); // get current action
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
             onClick: "window.location.href=window.location.href",
             children: "Refresh Page"
         }, void 0, false, {
             fileName: "src/javascript/index.js",
-            lineNumber: 21,
-            columnNumber: 1
+            lineNumber: 30,
+            columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 20,
-        columnNumber: 10
+        lineNumber: 29,
+        columnNumber: 5
     }, undefined);
 };
 _s(ReloadAction, "S89/TpBpRBv65Ppp5RklWGqJlsY=", true);
 _c = ReloadAction;
 const actionRenderers = {
-    "reload": ReloadAction
+    reload: ReloadAction
 };
 const App = ()=>{
     _s1();
@@ -2992,7 +2990,7 @@ const App = ()=>{
                         {
                             label: "Start Over",
                             value: "0"
-                        }, 
+                        }
                     ]
                 }, {
                     actionType: "selectButtons"
@@ -3064,7 +3062,7 @@ const App = ()=>{
                                     {
                                         label: "Start Over",
                                         value: "0"
-                                    }, 
+                                    }
                                 ]
                             }, {
                                 actionType: "selectButtons"
@@ -3141,7 +3139,7 @@ const App = ()=>{
                                         {
                                             label: "Start Over",
                                             value: "0"
-                                        }, 
+                                        }
                                     ]
                                 }, {
                                     actionType: "selectButtons"
@@ -3160,23 +3158,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 211,
+                    lineNumber: 238,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 212,
+                    lineNumber: 239,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 210,
+            lineNumber: 237,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 209,
+        lineNumber: 236,
         columnNumber: 5
     }, undefined);
 };
@@ -3187,7 +3185,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 221,
+        lineNumber: 248,
         columnNumber: 15
     }, undefined));
 }
