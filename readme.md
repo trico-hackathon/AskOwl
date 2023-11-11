@@ -1,9 +1,8 @@
-## run `npm i`.
+## Install
+npm i
 
-## JS
+## Test
+npm run dev-js
 
-Run `npm run dev-js`. This will run the code in `src/javascript` dir.
-
-## Typescript
-
-Run `npm run dev-ts`. This will run the code in `src/typescript` dir.
+## Build
+parcel build src/javascript/index.js
