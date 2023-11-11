@@ -1,8 +1,8 @@
 ## Install
-npm i
+`npm i`
 
 ## Test
-npm run dev-js
+`npm run dev-js`
 
 ## Build
-parcel build src/javascript/index.js
+`parcel build src/javascript/index.js`
