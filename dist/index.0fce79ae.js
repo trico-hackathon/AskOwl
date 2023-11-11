@@ -3054,10 +3054,15 @@ const App = ()=>{
                         console.log(hour);
                         console.log(minute);
                         console.log(direction);
-                        console.log((0, _busJsDefault.default)(busSchedule, day, hour, minute, direction));
+                        res = (0, _busJsDefault.default)(busSchedule, day, hour, minute, direction);
+                        console.log(res);
                         mybot.wait({
-                            waitTime: 500
-                        }).then(()=>mybot.action.set({
+                            waitTime: 1000
+                        }).then(()=>mybot.message.add({
+                                text: res
+                            })).then(()=>mybot.wait({
+                                waitTime: 500
+                            })).then(()=>mybot.action.set({
                                 options: [
                                     {
                                         label: "Start Over",
@@ -3131,20 +3136,30 @@ const App = ()=>{
                                 console.log(hour1);
                                 console.log(minute1);
                                 console.log(direction);
-                                console.log((0, _busJsDefault.default)(busSchedule, day1, hour1, minute1, direction));
-                            }).then(()=>mybot.wait({
-                                    waitTime: 500
-                                })).then(()=>mybot.action.set({
-                                    options: [
-                                        {
-                                            label: "Start Over",
-                                            value: "0"
-                                        }
-                                    ]
-                                }, {
-                                    actionType: "selectButtons"
-                                })).then((data)=>{
-                                if (data?.selected?.value == "0") window.location.reload();
+                                res = (0, _busJsDefault.default)(busSchedule, day1, hour1, minute1, direction);
+                                return res;
+                            }).then((res1)=>{
+                                console.log(res1);
+                                mybot.wait({
+                                    waitTime: 1000
+                                }).then(()=>{
+                                    mybot.message.add({
+                                        text: res1
+                                    });
+                                }).then(()=>mybot.wait({
+                                        waitTime: 500
+                                    })).then(()=>mybot.action.set({
+                                        options: [
+                                            {
+                                                label: "Start Over",
+                                                value: "0"
+                                            }, 
+                                        ]
+                                    }, {
+                                        actionType: "selectButtons"
+                                    })).then((data)=>{
+                                    if (data?.selected?.value == "0") window.location.reload();
+                                });
                             });
                         });
                     }
@@ -3158,23 +3173,23 @@ const App = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIMessageList), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 238,
+                    lineNumber: 253,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.BotUIAction), {}, void 0, false, {
                     fileName: "src/javascript/index.js",
-                    lineNumber: 239,
+                    lineNumber: 254,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/javascript/index.js",
-            lineNumber: 237,
+            lineNumber: 252,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 236,
+        lineNumber: 251,
         columnNumber: 5
     }, undefined);
 };
@@ -3185,7 +3200,7 @@ if (containerElement) {
     const root = (0, _client.createRoot)(containerElement);
     root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "src/javascript/index.js",
-        lineNumber: 248,
+        lineNumber: 263,
         columnNumber: 15
     }, undefined));
 }
@@ -30874,11 +30889,13 @@ const findNextBus = (schedule, day, hour, minute, direction)=>{
                 const busTimeInMinutes = parseInt(busHour) * 60 + parseInt(busMinute);
                 return busTimeInMinutes > inputTime;
             });
+            var ret;
             // Display the result using alert
-            if (nextBusTime) alert(`Next available bus for ${direction} on ${day} at ${nextBusTime}`);
-            else alert(`No more buses for ${direction} on ${day} today.`);
-        } else alert(`No schedule found for ${direction} on ${day}.`);
-    } else alert(`No schedule found for ${day}.`);
+            if (nextBusTime) ret = `Next available bus for ${direction} on ${day} at ${nextBusTime}`;
+            else ret = `No more buses for ${direction} on ${day} today.`;
+        } else ret = `No schedule found for ${direction} on ${day}.`;
+    } else ret = `No schedule found for ${day}.`;
+    return ret;
 };
 function convertTo24Hr(timeString) {
     const [time, period] = timeString.split(" ");

@@ -31,18 +31,20 @@ const findNextBus = (schedule, day, hour, minute, direction) => {
         return busTimeInMinutes > inputTime;
       });
 
+        var ret
       // Display the result using alert
       if (nextBusTime) {
-        alert(`Next available bus for ${direction} on ${day} at ${nextBusTime}`);
+        ret = `Next available bus for ${direction} on ${day} at ${nextBusTime}`;
       } else {
-        alert(`No more buses for ${direction} on ${day} today.`);
+        ret = `No more buses for ${direction} on ${day} today.`;
       }
     } else {
-      alert(`No schedule found for ${direction} on ${day}.`);
+      ret = `No schedule found for ${direction} on ${day}.`;
     }
   } else {
-    alert(`No schedule found for ${day}.`);
+    ret = `No schedule found for ${day}.`;
   }
+    return ret
 }
 
 function convertTo24Hr(timeString) {

@@ -136,12 +136,18 @@ const App = () => {
                     console.log(hour);
                     console.log(minute);
                     console.log(direction);
-                    console.log(
-                      findNextBus(busSchedule, day, hour, minute, direction),
+                    res = findNextBus(
+                      busSchedule,
+                      day,
+                      hour,
+                      minute,
+                      direction,
                     );
-
+                    console.log(res);
                     mybot
-                      .wait({ waitTime: 500 })
+                      .wait({ waitTime: 1000 })
+                      .then(() => mybot.message.add({ text: res }))
+                      .then(() => mybot.wait({ waitTime: 500 }))
                       .then(() =>
                         mybot.action.set(
                           {
@@ -199,30 +205,39 @@ const App = () => {
                             console.log(hour);
                             console.log(minute);
                             console.log(direction);
-                            console.log(
-                              findNextBus(
-                                busSchedule,
-                                day,
-                                hour,
-                                minute,
-                                direction,
-                              ),
+                            res = findNextBus(
+                              busSchedule,
+                              day,
+                              hour,
+                              minute,
+                              direction,
                             );
+                            return res;
                           })
+                          .then((res) => {
+                            console.log(res);
+                            mybot
+                              .wait({ waitTime: 1000 })
+                              .then(() => {
+                                mybot.message.add({ text: res });
+                              })
 
-                          .then(() => mybot.wait({ waitTime: 500 }))
-                          .then(() =>
-                            mybot.action.set(
-                              {
-                                options: [{ label: "Start Over", value: "0" }],
-                              },
-                              { actionType: "selectButtons" },
-                            ),
-                          )
-                          .then((data) => {
-                            if (data?.selected?.value == "0") {
-                              window.location.reload();
-                            }
+                              .then(() => mybot.wait({ waitTime: 500 }))
+                              .then(() =>
+                                mybot.action.set(
+                                  {
+                                    options: [
+                                      { label: "Start Over", value: "0" },
+                                    ],
+                                  },
+                                  { actionType: "selectButtons" },
+                                ),
+                              )
+                              .then((data) => {
+                                if (data?.selected?.value == "0") {
+                                  window.location.reload();
+                                }
+                              });
                           });
                       });
                   }
