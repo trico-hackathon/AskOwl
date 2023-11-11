@@ -1,5 +1,5 @@
 {
-  "name": "react-quickstart",
+  "name": "askowl",
   "scripts": {
     "dev-js": "parcel src/javascript/index.html",
     "build": "parcel build src/javascript/index.js --no-cache"
